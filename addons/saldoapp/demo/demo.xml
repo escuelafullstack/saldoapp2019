@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+
+        <record id="saldoapp.movimiento_salida_comida" model="sa.movimiento">
+            <field name="concepto">Salida a comer</field>
+            <field name="monto">90.00</field>
+        </record>
+
+        <record id="saldoapp.movimiento_ingreso_freelance" model="sa.movimiento">
+            <field name="concepto">Ingreso Freelance</field>
+            <field name="monto">190.00</field>
+        </record>
+        
+        <!--  -->
+        <!--   <record id="object0" model="saldoapp.saldoapp"> -->
+        <!--     <field name="name">Object 0</field> -->
+        <!--     <field name="value">0</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object1" model="saldoapp.saldoapp"> -->
+        <!--     <field name="name">Object 1</field> -->
+        <!--     <field name="value">10</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object2" model="saldoapp.saldoapp"> -->
+        <!--     <field name="name">Object 2</field> -->
+        <!--     <field name="value">20</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object3" model="saldoapp.saldoapp"> -->
+        <!--     <field name="name">Object 3</field> -->
+        <!--     <field name="value">30</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object4" model="saldoapp.saldoapp"> -->
+        <!--     <field name="name">Object 4</field> -->
+        <!--     <field name="value">40</field> -->
+        <!--   </record> -->
+        <!--  -->
+    </data>
+</odoo>

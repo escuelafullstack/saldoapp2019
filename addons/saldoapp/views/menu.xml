@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        
+        <!--MENU PRINCIPAL: SALDOAPP   model = ir.ui.menu -->
+        <record id="saldoapp.menu_saldoapp" model="ir.ui.menu" >
+            <field name="name">Saldo APP</field>
+            <field name="sequence" eval="10" />
+            <!--cuando el parent_id es vacío entonces es un menú principal-->
+            <field name="parent_id" ref="" /> 
+        </record>
+        
+        <!--SUBMENU: DIARIO-->
+        <record id="saldoapp.submenu_diario" model="ir.ui.menu" >
+            <field name="name">Diario Mov.</field>
+            <field name="sequence" eval="1"/>
+            <field name="action" ref="saldoapp.action_view_diario" />
+            <field name="parent_id" ref="saldoapp.menu_saldoapp" />
+        </record>
+
+        <!--SUBMENU: MOVIMIENTO-->
+        <record id="saldoapp.submenu_movimiento" model="ir.ui.menu" >
+            <field name="name">Mis Movimientos</field>
+            <field name="sequence" eval="2" />
+            <field name="parent_id" ref="saldoapp.menu_saldoapp" /> 
+            <field name="action" ref="saldoapp.action_view_sa_movimiento"/>
+        </record>
+
+        <!--SUBMENU: CATEGORIAS-->
+        <record id="saldoapp.submenu_categorias" model="ir.ui.menu">
+            <field name="name">Categorias</field>
+            <field name="sequence" eval="3"></field>
+            <field name="parent_id" ref="saldoapp.menu_saldoapp" /> 
+            <field name="action" ref="saldoapp.action_view_categorias"/>
+        </record>
+
+        
+    
+    </data>
+</odoo>

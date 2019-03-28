@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+
+    <!--VIEW FORM: MOVIMIENTO-->
+    <record id="saldoapp.view_tree_sa_movimiento" model="ir.ui.view">
+      <field name="name">view.tree.sa.movimiento</field>
+      <field name="model">sa.movimiento</field>
+      <field name="arch" type="xml">
+          <!--
+          <tree editable="bottom">
+          <tree editable="top">
+          -->
+          <tree>
+            <field name="concepto" required="1"/>
+            <field name="tipo" />
+            <field name="fecha" required="1"/>
+            <field name="monto" required="1"/>
+            <field name="categoria_id" />
+          </tree>
+      </field>
+    </record>
+
+    <!--VIEW FORM: MOVIMIENTO-->
+    <record id="saldoapp.view_form_sa_movimiento" model="ir.ui.view">
+      <field name="name">view.form.sa.movimiento</field>
+      <field name="model">sa.movimiento</field>
+      <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <group>
+                <group>
+                  <field name="concepto" attrs="{'required':[('monto','>',0)]}"/>
+                  <field name="tipo"/>
+                  <field name="categoria_id" widget="radio" attrs="{'invisible':[('monto','=',0)]}"/>
+                </group>
+                <group>
+                  <field name="fecha" attrs="{'readonly':[('monto','>',0)],'required':False}"/>
+                  <field name="monto" attrs="{'required':[('monto','>',0)]}"/>
+                </group>
+              </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
+    <!--ACTION VIEW: MOVIMIENTO    model = ir.actions.act_window -->
+    <record id="saldoapp.action_view_sa_movimiento" model="ir.actions.act_window">
+      <field name="name">Mis Movimientos</field>
+      <field name="res_model">sa.movimiento</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+  
+  </data>
+</odoo>

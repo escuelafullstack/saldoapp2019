@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_daniel_moreno_daniel_moreno,daniel_moreno.daniel_moreno,model_daniel_moreno_daniel_moreno,,1,0,0,0

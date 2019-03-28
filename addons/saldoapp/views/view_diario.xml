@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="saldoapp.view_tree_diario" model="ir.ui.view">
+            <field name="name">saldoapp.view.tree.diario</field>
+            <field name="model">sa.diario</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="fecha"/>
+                    <field name="total_ingresos"/>
+                    <field name="total_egresos"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="saldoapp.view_form_diario" model="ir.ui.view">
+            <field name="name">saldoapp.view.form.diario</field>
+            <field name="model">sa.diario</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="fecha"/>
+                            <field name="total_ingresos" widget="currency"/>
+                            <field name="total_egresos"  widget="currency"/>
+                            <field name="movimiento_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="saldoapp.action_view_diario" model="ir.actions.act_window">
+            <field name="name">Diarios</field>
+            <field name="res_model">sa.diario</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
