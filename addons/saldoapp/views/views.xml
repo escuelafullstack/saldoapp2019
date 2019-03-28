@@ -34,8 +34,9 @@
                   <field name="categoria_id" widget="radio" attrs="{'invisible':[('monto','=',0)]}"/>
                 </group>
                 <group>
-                  <field name="fecha" attrs="{'readonly':[('monto','>',0)],'required':False}"/>
-                  <field name="monto" attrs="{'required':[('monto','>',0)]}"/>
+                  <field name="fecha" attrs="{'required':True}"/>
+                  <field name="currency_id"/>
+                  <field name="monto" attrs="{'required':[('monto','>',0)]}" widget="monetary" options="{'currency_field':'currency_id'}"/>
                 </group>
               </group>
             </sheet>

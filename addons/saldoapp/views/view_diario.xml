@@ -5,7 +5,7 @@
             <field name="name">saldoapp.view.tree.diario</field>
             <field name="model">sa.diario</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree create="0">
                     <field name="fecha"/>
                     <field name="total_ingresos"/>
                     <field name="total_egresos"/>
@@ -17,13 +17,29 @@
             <field name="name">saldoapp.view.form.diario</field>
             <field name="model">sa.diario</field>
             <field name="arch" type="xml">
-                <form>
+                <form create="0">
                     <sheet>
                         <group>
                             <field name="fecha"/>
-                            <field name="total_ingresos" widget="currency"/>
-                            <field name="total_egresos"  widget="currency"/>
-                            <field name="movimiento_ids"/>
+                            <field name="currency_id"/>
+                            <field name="total_ingresos" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                            <field name="total_egresos"  widget="monetary" options="{'currency_field':'currency_id'}"/>
+                            <field name="total_ingresos_1" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                            <field name="total_egresos_1"  widget="monetary" options="{'currency_field':'currency_id'}"/>
+                            <field name="movimiento_ids" mode="tree">
+                                <tree string="Movimientos" 
+                                        decoration-success="tipo == 'ingreso'"
+                                        decoration-danger="tipo == 'egreso'"
+                                        create="0" 
+                                        delete="0" 
+                                        edit="0">
+                                    <field name="categoria_id"/>
+                                    <field name="concepto"/>
+                                    <field name="monto" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                                    <field name="currency_id"/>
+                                    <field name="tipo"/>
+                                </tree>
+                            </field>
                         </group>
                     </sheet>
                 </form>
