@@ -62,7 +62,7 @@ class Movimiento(models.Model):
     @api.model
     def default_get(self, flds):
         res = super(Movimiento, self).default_get(flds)
-        res.update({"fecha":fields.Datetime.now(),"monto":50})        
+        res.update({"fecha":fields.Datetime.now()})        
         return res
         
     

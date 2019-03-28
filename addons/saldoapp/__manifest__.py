@@ -29,8 +29,7 @@
         'views/view_diario.xml',
         'views/view_categoria.xml',
         'views/view_movimientos.xml',
-        'views/menu.xml',
-        'demo/demo.xml'
+        'views/menu.xml'
         
     ],
     # only loaded in demonstration mode

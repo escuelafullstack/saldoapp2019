@@ -24,8 +24,21 @@
             <field name="name">Mis Movimientos</field>
             <field name="sequence" eval="2" />
             <field name="parent_id" ref="saldoapp.menu_saldoapp" /> 
-            <field name="action" ref="saldoapp.action_view_sa_movimiento"/>
         </record>
+        
+            <!--SUBMENU: INGRESO-->
+            <record id="saldoapp.submenu_movimiento_ingreso" model="ir.ui.menu" >
+                <field name="name">Ingresos</field>
+                <field name="parent_id" ref="saldoapp.submenu_movimiento" /> 
+                <field name="action" ref="saldoapp.action_view_sa_movimiento_ingreso"/>
+            </record>
+
+            <!--SUBMENU: EGRESOS-->
+            <record id="saldoapp.submenu_movimiento_egreso" model="ir.ui.menu" >
+                <field name="name">Egresos</field>
+                <field name="parent_id" ref="saldoapp.submenu_movimiento" /> 
+                <field name="action" ref="saldoapp.action_view_sa_movimiento_egreso"/>
+            </record>
 
         <!--SUBMENU: CATEGORIAS-->
         <record id="saldoapp.submenu_categorias" model="ir.ui.menu">

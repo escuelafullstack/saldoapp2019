@@ -1,7 +1,7 @@
 <odoo>
   <data>
 
-    <!--VIEW FORM: MOVIMIENTO-->
+    <!--VIEW TREE: MOVIMIENTO-->
     <record id="saldoapp.view_tree_sa_movimiento" model="ir.ui.view">
       <field name="name">view.tree.sa.movimiento</field>
       <field name="model">sa.movimiento</field>
@@ -30,7 +30,7 @@
               <group>
                 <group>
                   <field name="concepto" attrs="{'required':[('monto','>',0)]}"/>
-                  <field name="tipo"/>
+                  <field name="tipo" readonly="1"/>
                   <field name="categoria_id" widget="radio" attrs="{'invisible':[('monto','=',0)]}"/>
                 </group>
                 <group>
@@ -50,7 +50,45 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <!--ACTION VIEW: MOVIMIENTO INGRESO    model = ir.actions.act_window -->
+    
+    <record id="saldoapp.view_tree_movimiento_ingreso1" model="ir.ui.view">
+        <field name="name">view.tree.movimiento.ingreso1</field>
+        <field name="model">sa.movimiento</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+          <tree>
+              <field name="concepto"/>
+              <field name="fecha"/>
+          </tree>            
+        </field>
+    </record>
+    
+    <record id="saldoapp.action_view_sa_movimiento_ingreso" model="ir.actions.act_window">
+      <field name="name">Ingresos</field>
+      <field name="res_model">sa.movimiento</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[('tipo','=','ingreso')]</field>
+      <field name="context">{'default_tipo':'ingreso','default_monto':80}</field>
+    </record>
 
+    
+    <record id="saldoapp.action_view_tree_sa_mov_ingreso" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="saldoapp.action_view_sa_movimiento_ingreso" />
+        <field name="view_id" ref="saldoapp.view_tree_movimiento_ingreso1" />
+        <field name="view_mode">tree</field>
+        <field name="sequence" eval="20" />
+        <field name="multi" eval="False" />
+    </record>
+    
+  <!--ACTION VIEW: MOVIMIENTO EGRESO    model = ir.actions.act_window -->
+    <record id="saldoapp.action_view_sa_movimiento_egreso" model="ir.actions.act_window">
+      <field name="name">Egresos</field>
+      <field name="res_model">sa.movimiento</field>
+      <field name="view_mode">tree,form</field>
+      <field name="domain">[('tipo','=','egreso')]</field>
+      <field name="context">{'default_tipo':'egreso','default_monto':90}</field>
+    </record>
   
   </data>
 </odoo>
