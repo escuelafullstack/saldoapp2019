@@ -24,12 +24,17 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'security/sa_categoria.xml',
+        'security/group_administrador.xml',
+        'security/group_usuario.xml',
+        'security/group_usuario_premium.xml',
+
         'views/views.xml',
         'views/templates.xml',
         'views/view_diario.xml',
         'views/view_categoria.xml',
         'views/view_movimientos.xml',
-        'views/menu.xml'
+        'views/menu.xml',
         
     ],
     # only loaded in demonstration mode

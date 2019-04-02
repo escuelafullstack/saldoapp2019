@@ -9,6 +9,8 @@
                     <field name="fecha"/>
                     <field name="total_ingresos"/>
                     <field name="total_egresos"/>
+                    <field name="create_uid" groups="saldoapp.group_admin_sa"/>
+                    <field name="create_date" groups="saldoapp.group_admin_sa"/>
                 </tree>
             </field>
         </record>

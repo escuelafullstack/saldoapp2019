@@ -17,6 +17,7 @@
             <field name="sequence" eval="1"/>
             <field name="action" ref="saldoapp.action_view_diario" />
             <field name="parent_id" ref="saldoapp.menu_saldoapp" />
+            <field name="groups_id" eval="[(4,ref('saldoapp.group_user_premium_sa'))]"/>
         </record>
 
         <!--SUBMENU: MOVIMIENTO-->

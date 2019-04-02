@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        
+        <record id="saldoapp.group_user_sa" model="res.groups">
+            <field name="name">Usuario de Saldo APP</field>
+            <field name="category_id" ref="saldoapp.module_saldo_app"/>
+        </record>
+        
+        <record id="saldoapp.access_model_sa_movimiento_group_user" model="ir.model.access">
+            <field name="name">access.model.sa.movimiento.group.user</field>
+            <field name="model_id" ref="saldoapp.model_sa_movimiento"/>
+            <field name="group_id" ref="saldoapp.group_user_sa"/>
+            <field name="perm_read" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_unlink" eval="True" />
+            <field name="active" eval="True" />
+        </record>
+        
+        <record id="saldoapp.access_model_sa_categoria_group_user" model="ir.model.access">
+            <field name="name">access.model.sa.categoria.group.user</field>
+            <field name="model_id" ref="saldoapp.model_sa_categoria"/>
+            <field name="group_id" ref="saldoapp.group_user_sa"/>
+            <field name="perm_read" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_unlink" eval="False" />
+            <field name="active" eval="True" />
+        </record>
+        
+        <record id="saldoapp.access_model_sa_diario_group_user" model="ir.model.access">
+            <field name="name">access.model.sa.diario.group.user</field>
+            <field name="model_id" ref="saldoapp.model_sa_diario"/>
+            <field name="group_id" ref="saldoapp.group_user_sa"/>
+            <field name="perm_read" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_unlink" eval="False" />
+            <field name="active" eval="True" />
+        </record>
+
+        
+        <record id="saldoapp.rule_sa_movimiento_group_user" model="ir.rule">
+            <field name="name">El usuario solo puede manipular los movimientos creados por el mismo</field>
+            <field name="model_id" ref="saldoapp.model_sa_movimiento"/>
+            <!--<field name="global" eval="True" />-->
+            <field name="groups" eval="[(4,ref('saldoapp.group_user_sa'))]"/>
+            <field name="perm_read" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_unlink" eval="True" />
+            <field name="domain_force">[('create_uid','=',user.id)]</field>
+            <field name="active" eval="True" />
+        </record>
+        
+        <record id="saldoapp.rule_sa_diario_group_user" model="ir.rule">
+            <field name="name">El usuario solo puede manipular los diarios creados por el mismo</field>
+            <field name="model_id" ref="saldoapp.model_sa_diario"/>
+            <!--<field name="global" eval="True" />-->
+            <field name="groups" eval="[(4,ref('saldoapp.group_user_sa'))]"/>
+            <field name="perm_read" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_unlink" eval="True" />
+            <field name="domain_force">[('create_uid','=',user.id)]</field>
+            <field name="active" eval="True" />
+        </record>
+
+        <record id="saldoapp.rule_sa_categoria_group_user" model="ir.rule">
+            <field name="name">El usuario solo puede manipular los categorias creados por el mismo</field>
+            <field name="model_id" ref="saldoapp.model_sa_categoria"/>
+            <!--<field name="global" eval="True" />-->
+            <field name="groups" eval="[(4,ref('saldoapp.group_user_sa'))]"/>
+            <field name="perm_read" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_unlink" eval="True" />
+            <field name="domain_force">[('create_uid','=',user.id)]</field>
+            <field name="active" eval="True" />
+        </record>
+    </data>
+</odoo>
