@@ -34,6 +34,7 @@
         'views/view_diario.xml',
         'views/view_categoria.xml',
         'views/view_movimientos.xml',
+        'views/res_partner.xml',
         'views/menu.xml',
         
     ],
