@@ -36,7 +36,7 @@
         'views/view_movimientos.xml',
         'views/res_partner.xml',
         'views/menu.xml',
-        
+        'reports/report2.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

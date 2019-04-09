@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+     <template id="saldoapp.template_reporte_mov_diario" name="saldoapp.template_reporte_mov_diario" >
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>
+                                Movimiento diario de la fecha: <t t-esc="o.fecha"/>
+                                
+                            </h2>
+                            <ul>
+                                <li>Ingresos: <t t-esc="o.total_ingresos"/>
+                                </li>
+                                <li>Egresos: <t t-esc="o.total_egresos"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        
+        <record id="saldoapp.reporte_mov_diario" model="ir.actions.report">
+            <field name="name">saldoapp.reporte_mov_diario</field>
+            <field name="report_name">saldoapp.template_reporte_mov_diario</field>
+            <field name="file">saldoapp.template_reporte_mov_diario</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="model">sa.diario</field>
+            <field name="string">Reporte de Mov Diario</field>
+        </record>
+        <!--
+        <report
+            id="saldoapp.reporte_mov_diario"
+            name="reporte_mov_diario"
+            report_name="reporte_mov_diario"
+            file="reporte_mov_diario" 
+            
+            string="Reporte de Mov. Diario"
+            model="sa.diario"
+            report_type="qweb-pdf"
+        />
+        -->
+
+    </data>
+</odoo>
